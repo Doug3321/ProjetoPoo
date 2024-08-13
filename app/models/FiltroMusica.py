@@ -1,0 +1,2 @@
+class FiltroMusica():
+  pass
