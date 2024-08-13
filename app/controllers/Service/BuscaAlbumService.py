@@ -2,8 +2,8 @@ from models import Album
 import SpotifyService as ss
 busca = ss.sp
 
-import BuscaMusicasService as buscaMusica
-import BuscaArtistasService as buscaArtista
+import BuscaMusicaService as buscaMusica
+import BuscaArtistaService as buscaArtista
 
 class BuscaAlbumService:
   
