@@ -1,4 +1,4 @@
-from Service import BuscaMusicaService
+from service.BuscaMusicaService import BuscaMusicaService
 
 class BuscaMusicas:
   pass

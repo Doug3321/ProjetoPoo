@@ -1,12 +1,7 @@
-import Artista
-import Album
-
 class Musica:
     def __init__(self):
-        self.__id = str()
-        self.__nome = str()
-        self.__artista = Artista()
-        self.__album = Album()
+        self.__id = ''
+        self.__nome = ''
 
     @property
     def id(self):
