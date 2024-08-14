@@ -2,6 +2,9 @@ class Musica:
     def __init__(self):
         self.__id = ''
         self.__nome = ''
+        self.__url = ''
+        self.__popularidade = 0
+        self.__artista_nome = ''
 
     @property
     def id(self):
@@ -20,25 +23,28 @@ class Musica:
         self.__nome = nome
 
     @property
-    def artista(self):
-        return self.__artista
+    def url(self):
+        return self.__url
 
-    @artista.setter
-    def artista(self, artista):
-        self.__artista = artista
-
-    @property
-    def genero(self):
-        return self.__genero
-
-    @genero.setter
-    def genero(self, genero):
-        self.__genero = genero
+    @url.setter
+    def url(self, url):
+        self.__url = url
 
     @property
-    def album(self):
-        return self.__album
+    def popularidade(self):
+        return self.__popularidade
 
-    @album.setter
-    def album(self, album):
-        self.__album = album
+    @popularidade.setter
+    def popularidade(self, popularidade):
+        self.__popularidade = popularidade
+    
+    @property
+    def artista_nome(self):
+        return self.__artista_nome
+
+    @artista_nome.setter
+    def artista_nome(self, nome):
+        self.__artista_nome = nome
+        
+    def __repr__(self) -> str:
+        return f'\nNome: {self.nome} - Artista: {self.artista_nome} - Popularidade: {self.popularidade} - Pagina Spotify: {self.url}\n'
