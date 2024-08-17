@@ -1,11 +1,11 @@
-from app.controllers.service.BuscaMusicaService import buscaMusicas
+from app.controllers.service.BuscaMusicaService import BuscaMusicaService as bm
 
 class BuscaMusicas:
   
   @staticmethod
-  def buscaMusicas(query):
+  def buscaMusicas(query, quant):
     try:
-      lista = buscaMusicas(query)
+      lista = bm.buscaMusicas(query, quant)
       return lista
     except:
-      raise Exception("Erro ao buscar musica")
+      raise Exception("Erro ao buscar musicas")

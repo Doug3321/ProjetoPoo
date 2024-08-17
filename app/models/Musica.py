@@ -1,10 +1,10 @@
 class Musica:
-    def __init__(self):
+    def __init__(self) -> None:
         self.__id = ''
         self.__nome = ''
         self.__url = ''
         self.__popularidade = 0
-        self.__artista_nome = ''
+        self.__artista = []
 
     @property
     def id(self):
@@ -39,12 +39,12 @@ class Musica:
         self.__popularidade = popularidade
     
     @property
-    def artista_nome(self):
-        return self.__artista_nome
+    def artista(self):
+        return self.__artista
 
-    @artista_nome.setter
-    def artista_nome(self, nome):
-        self.__artista_nome = nome
+    @artista.setter
+    def artista(self, artista):
+        self.__artista = artista
         
     def __repr__(self) -> str:
-        return f'\nNome: {self.nome} - Artista: {self.artista_nome} - Popularidade: {self.popularidade} - Pagina Spotify: {self.url}\n'
+        return f'Nome: {self.nome} --Artistas: {self.artista} --Popularidade: {self.popularidade} --Pagina Spotify: {self.url}\n'
