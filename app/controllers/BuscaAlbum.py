@@ -1,4 +1,4 @@
-from app.controllers.service.BuscaAlbumService import BuscaAlbumService as ba
+from app.controllers.Service.BuscaAlbumService import BuscaAlbumService as ba
 
 class BuscaAlbum:
   @staticmethod

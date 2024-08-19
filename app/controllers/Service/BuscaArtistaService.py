@@ -1,4 +1,4 @@
-from app.controllers.service.SpotifyService import SpotifyService as ss
+from app.controllers.Service.SpotifyService import SpotifyService as ss
 
 from app.models.Artista import Artista
 

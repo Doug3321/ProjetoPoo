@@ -1,4 +1,4 @@
-from app.controllers.service.BuscaMusicaService import BuscaMusicaService as bm
+from app.controllers.Service.BuscaMusicaService import BuscaMusicaService as bm
 
 class BuscaMusicas:
   
