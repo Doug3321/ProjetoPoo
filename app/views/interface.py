@@ -32,11 +32,11 @@ def display_results(lista, type):
         elif type == 'album':
             display_text = f"Name: {item.nome}\nNumber of Songs: {item.num_musicas}\nRelease Date: {item.data_lancamento}\nSpotify: {item.url}"
         
-        # Create a frame for the card
+        
         card_frame = tk.Frame(song_canvas, bg='#ffffff', bd=2, relief=tk.RAISED, width=780)
         card_frame.place(x=10, y=y_position, width=780, height=100)
 
-        # Add item details to the card
+       
         tk.Label(card_frame, text=display_text, font=custom_font, bg='#ffffff').pack(anchor='w', padx=10, pady=5)
         if type in ['song', 'artist', 'album']:
             link_label = tk.Label(card_frame, text="Listen on Spotify", font=custom_font, fg='#1DB954', bg='#ffffff', cursor="hand2")
