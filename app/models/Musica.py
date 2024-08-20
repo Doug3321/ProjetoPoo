@@ -5,7 +5,7 @@ class Musica:
         self.__url = ''
         self.__popularidade = 0
         self.__artista = []
-
+        
     @property
     def id(self):
         return self.__id

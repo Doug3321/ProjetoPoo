@@ -1,4 +1,4 @@
-from app.controllers.Service.BuscaArtistaService import BuscaArtistaService as ba
+from app.controllers.service.BuscaArtistaService import BuscaArtistaService as ba
 
 class BuscaArtistas:
   

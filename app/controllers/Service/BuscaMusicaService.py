@@ -1,6 +1,6 @@
-from app.controllers.Service.SpotifyService import SpotifyService as ss
+from app.controllers.service.SpotifyService import SpotifyService as ss
 
-from app.controllers.Service.BuscaArtistaService import BuscaArtistaService as bas
+from app.controllers.service.BuscaArtistaService import BuscaArtistaService as bas
 from app.models.Musica import Musica
 
 class BuscaMusicaService:

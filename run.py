@@ -1,5 +1,3 @@
-from app.controllers.BuscaMusicas import BuscaMusicas
-from app.controllers.BuscaArtistas import BuscaArtistas
 from app.views.interface import create_interface
 
 def main():

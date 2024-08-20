@@ -1,7 +1,8 @@
-from app.controllers.Service.SpotifyService import SpotifyService as ss
+from app.controllers.service.SpotifyService import SpotifyService as ss
 
-from app.controllers.Service.BuscaArtistaService import BuscaArtistaService as bas
+from app.controllers.service.BuscaArtistaService import BuscaArtistaService as bas
 from app.models.Album import Album
+from app.models.Foto import Foto
 
 class BuscaAlbumService:
   @staticmethod
@@ -16,6 +17,7 @@ class BuscaAlbumService:
       album.url = e['external_urls']['spotify']
       album.nome = e['name']
       album.data_lancamento = e['release_date']
+      album.foto = Foto(e['images'][0]['url'], e['images'][0]['height'], e['images'][0]['width'])
       
       for art in e['artists']:
         valor = bas.buscaArtista(art['id'])

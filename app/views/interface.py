@@ -1,24 +1,20 @@
 # app/views/interface.py
 import tkinter as tk
 from tkinter import font as tkfont
-from app.controllers.BuscaMusicas import BuscaMusicas
-from app.controllers.BuscaArtistas import BuscaArtistas
-from app.controllers.BuscaAlbum import BuscaAlbum
+from app.controllers.Executa import Executa
 import webbrowser
 
 def search():
+    e = Executa()
     query = query_entry.get()
     search_type = search_var.get()
-
-    if search_type == "Song":
-        listaMusicas = BuscaMusicas.buscaMusicas(query, 6)
-        display_results(listaMusicas, 'song')
-    elif search_type == "Artist":
-        listaArtistas = BuscaArtistas.buscaArtistas(query, 6)
-        display_results(listaArtistas, 'artist')
-    elif search_type == "Album":
-        listaAlbuns = BuscaAlbum.buscaAlbuns(query, 6)
-        display_results(listaAlbuns, 'album')
+    quant = 3
+    
+    resultado = e.busca(search_type, query, quant)
+    if resultado == str():
+        print(resultado)
+    else:
+        display_results(resultado[0], resultado[1])
 
 def display_results(lista, type):
     song_canvas.delete("all")

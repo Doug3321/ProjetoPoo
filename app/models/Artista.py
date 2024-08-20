@@ -6,6 +6,7 @@ class Artista:
         self.__generos = ''
         self.__popularidade = 0
         self.__seguidores = 0
+        self.__foto = ''
 
     @property
     def id(self):
@@ -53,6 +54,14 @@ class Artista:
     @seguidores.setter
     def seguidores(self, seguidores):
         self.__seguidores = seguidores
+        
+    @property
+    def foto(self):
+        return self.__foto
+
+    @foto.setter
+    def foto(self, foto):
+        self.__foto = foto
 
     def __repr__(self) -> str:
         return f'Nome: {self.nome} - Seguidores: {self.seguidores} - Generos: {self.generos} - Pagina Spotify: {self.url}\n'

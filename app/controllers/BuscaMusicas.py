@@ -1,4 +1,4 @@
-from app.controllers.Service.BuscaMusicaService import BuscaMusicaService as bm
+from app.controllers.service.BuscaMusicaService import BuscaMusicaService as bm
 
 class BuscaMusicas:
   
@@ -8,4 +8,4 @@ class BuscaMusicas:
       lista = bm.buscaMusicas(query, quant)
       return lista
     except:
-      raise Exception("Erro ao buscar musicas")
+      raise Exception('Erro ao buscar Musicas')

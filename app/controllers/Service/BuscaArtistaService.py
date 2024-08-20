@@ -1,7 +1,7 @@
-from app.controllers.Service.SpotifyService import SpotifyService as ss
+from app.controllers.service.SpotifyService import SpotifyService as ss
 
 from app.models.Artista import Artista
-
+from app.models.Foto import Foto
 class BuscaArtistaService:
   
   @staticmethod
@@ -15,7 +15,7 @@ class BuscaArtistaService:
     artista.popularidade = dataArtista['popularity']
     artista.url = dataArtista['external_urls']['spotify']
     artista.seguidores = dataArtista['followers']['total']
-    
+    artista.foto = Foto(dataArtista['images'][0]['url'], dataArtista['images'][0]['height'], dataArtista['images'][0]['width'])
     return artista
   
   @staticmethod
@@ -32,6 +32,7 @@ class BuscaArtistaService:
       artista.url = e['external_urls']['spotify']
       artista.seguidores = e['followers']['total']
       artista.generos = e['genres']
+      artista.foto = Foto(e['images'][0]['url'], e['images'][0]['height'], e['images'][0]['width'])
     
       artistas.append(artista)
   

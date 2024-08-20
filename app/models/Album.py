@@ -6,7 +6,8 @@ class Album:
         self.__num_musicas = 0
         self.__data_lancamento = ''
         self.__artistas = []
-
+        self.__foto = ''
+        
     @property
     def id(self):
         return self.__id
@@ -54,6 +55,14 @@ class Album:
     @artistas.setter
     def artistas(self, artistas):
         self.__artistas = artistas
+        
+    @property
+    def foto(self):
+        return self.__foto
+
+    @foto.setter
+    def foto(self, foto):
+        self.__foto = foto
 
     def __repr__(self) -> str:
         return f'Nome: {self.nome} --Artistas: {self.artistas} --Data de lançamento: {self.data_lancamento} --Número de musicas: {self.num_musicas} --Pagina Spotify: {self.url}\n'
