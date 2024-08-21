@@ -3,7 +3,27 @@ import tkinter as tk
 from tkinter import font as tkfont
 from app.controllers.Executa import Executa
 import webbrowser
+from PIL import ImageTk, Image
+import urllib.request
 
+def display_image_from_url(url):
+ 
+   try:
+      with urllib.request.urlopen(url) as u:
+         raw_data = u.read()
+   except Exception as e:
+      print(f"Error fetching image: {e}")
+      return
+
+   try:
+      image = Image.open(io.BytesIO(raw_data))
+      photo = ImageTk.PhotoImage(image)
+   except Exception as e:
+      print(f"Error opening image: {e}")
+      return
+
+
+    
 def search():
     e = Executa()
     query = query_entry.get()
@@ -22,22 +42,25 @@ def display_results(lista, type):
     y_position = 10
     for item in lista:
         if type == 'song':
-            display_text = f"Name: {item.nome}\nArtists: {', '.join([artist.nome for artist in item.artista])}\nPopularity: {item.popularidade}\nSpotify: {item.url}"
+            display_text = f"Name: {item.nome}\nArtists: {', '.join([artist.nome for artist in item.artista])}\nPopularity: {item.popularidade}"
         elif type == 'artist':
-            display_text = f"Name: {item.nome}\nGenres: {', '.join(item.generos)}\nPopularity: {item.popularidade}\nFollowers: {item.seguidores}\nSpotify: {item.url}"
+            display_text = f"Name: {item.nome}\nGenres: {', '.join(item.generos)}\nPopularity: {item.popularidade}\nFollowers: {item.seguidores}\nUrlImage: {item.foto.url}"
         elif type == 'album':
-            display_text = f"Name: {item.nome}\nNumber of Songs: {item.num_musicas}\nRelease Date: {item.data_lancamento}\nSpotify: {item.url}"
+            display_text = f"Name: {item.nome}\nNumber of Songs: {item.num_musicas}\nRelease Date: {item.data_lancamento}"
         
         
-        card_frame = tk.Frame(song_canvas, bg='#ffffff', bd=2, relief=tk.RAISED, width=780)
-        card_frame.place(x=10, y=y_position, width=780, height=100)
+        card_frame = tk.Frame(song_canvas, bg='#ffffff', bd=2, relief=tk.RAISED, width=800  )
+        card_frame.place( width=800,y=y_position, height=100 )
 
-       
-        tk.Label(card_frame, text=display_text, font=custom_font, bg='#ffffff').pack(anchor='w', padx=10, pady=5)
+        
+        tk.Label(card_frame, text=display_text, font=custom_font, bg='#ffffff' , justify=tk.LEFT).pack(anchor='w', padx=10, pady=1, side=tk.LEFT)
+        display_image_from_url(item.foto.url)
+
         if type in ['song', 'artist', 'album']:
             link_label = tk.Label(card_frame, text="Listen on Spotify", font=custom_font, fg='#1DB954', bg='#ffffff', cursor="hand2")
-            link_label.pack(anchor='w', padx=10, pady=5)
+            link_label.pack(anchor='w', padx=10, pady=1, side=tk.LEFT )
             link_label.bind("<Button-1>", lambda e, url=item.url: webbrowser.open(url))
+            
         
         y_position += 120
 
@@ -57,7 +80,8 @@ def create_interface():
     query_label.pack(pady=10)
 
     global query_entry
-    query_entry = tk.Entry(root, font=custom_font, width=70)
+    query_entry = tk.Entry(root, font=custom_font, width=70,)
+    query_entry['font'] = ('Helvetica', 28)
     query_entry.pack(pady=10)
 
     global search_var
